@@ -9,7 +9,7 @@ Given an integer array `nums` and an integer `k`, return the total number of con
 ```text
 Input:
 nums = [1,1,1]
-k = 2
+k = 2git 
 
 Output:
 2
@@ -69,34 +69,6 @@ where `n` is the number of elements in the array.
 
 ---
 
-## C++ Solution
-
-```cpp
-class Solution {
-public:
-    int subarraySum(vector<int>& nums, int k) {
-        unordered_map<int, int> mp;
-        mp[0] = 1;
-
-        int prefixSum = 0;
-        int ans = 0;
-
-        for (int num : nums) {
-            prefixSum += num;
-
-            if (mp.find(prefixSum - k) != mp.end()) {
-                ans += mp[prefixSum - k];
-            }
-
-            mp[prefixSum]++;
-        }
-
-        return ans;
-    }
-};
-```
-
----
 
 ## Dry Run
 
